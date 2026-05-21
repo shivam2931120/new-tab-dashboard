@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Tab Dashboard</title>
+    <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../src/css/styles.css">
+  </head>
+  <body class="page page-dashboard">
+    <a class="skip-link" href="#dashboard-widgets">Skip to dashboard</a>
+    <div class="app-shell">
+      <header class="topbar" aria-label="Dashboard controls">
+        <a class="brand" href="./newtab.html" aria-label="New Tab Dashboard home">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span class="brand-text">New Tab Dashboard</span>
+        </a>
+        <nav class="topbar-actions" aria-label="Dashboard actions">
+          <button class="button button-ghost" id="theme-toggle" type="button">Theme</button>
+          <button class="button button-ghost" id="layout-toggle" type="button">Layout</button>
+          <a class="button button-primary" href="./options.html">Options</a>
+        </nav>
+      </header>
+
+      <main id="dashboard-widgets" class="widget-grid" aria-live="polite"></main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="../src/js/newtab.js"></script>
+  </body>
+</html>

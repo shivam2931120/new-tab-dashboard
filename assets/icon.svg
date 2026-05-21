@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title">
+  <title>New Tab Dashboard</title>
+  <rect width="128" height="128" rx="20" fill="#137c70"/>
+  <path d="M24 31h80v66H24z" fill="#fffaf0"/>
+  <path d="M34 42h60v10H34zM34 62h26v22H34zM68 62h26v22H68z" fill="#137c70"/>
+  <path d="M38 98h52" stroke="#f1a83a" stroke-width="8" stroke-linecap="round"/>
+</svg>

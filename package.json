@@ -1,0 +1,11 @@
+{
+  "name": "new-tab-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "A Manifest V3 browser extension that replaces the new tab page with a local productivity dashboard.",
+  "scripts": {
+    "check": "node scripts/validate.mjs",
+    "test": "node tests/storage.test.mjs"
+  }
+}

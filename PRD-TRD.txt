@@ -1,0 +1,162 @@
+PRD
+
+Product name: New Tab Dashboard
+Goal: Replace the browser new tab page with a clean, customizable productivity dashboard.
+
+Problem
+
+The default new tab page is wasted space. Users need a fast launch surface for tasks, links, notes, and productivity.
+
+Target users
+
+Students, developers, creators, and general productivity users.
+
+Core value
+
+A beautiful new tab page that becomes a personal control center.
+
+MVP features
+Override the browser new tab page
+Show current time and date
+Search bar
+Quick links / pinned shortcuts
+Sticky notes widget
+To-do list widget
+Recent bookmarks or manually managed links
+Theme toggle
+Background customization
+Local-only storage
+Responsive layout
+Necessary v1 features
+Reorder widgets
+Add/edit/delete quick links
+Add/edit/delete notes
+To-do completion and cleanup
+Search box that opens default search engine
+Import/export dashboard configuration
+Dark mode and light mode
+Multiple layout density options
+Non-goals for MVP
+No AI
+No backend
+No login or sync service
+No complex calendar integrations
+UX expectations
+Visually polished
+Fast load
+Minimal clutter
+Personalized but professional
+Works beautifully on laptop and desktop
+Success criteria
+New tab loads instantly
+Core widgets are readable and useful
+Users can personalize in under 2 minutes
+The dashboard feels more useful than the browser default
+TRD
+Tech stack
+Manifest V3
+Vanilla JavaScript
+HTML + CSS
+Browser extension APIs
+Required permissions
+storage
+bookmarks optional, if you want bookmark-based quick links
+topSites optional, if supported and useful
+No unnecessary permissions
+Extension architecture
+New tab override page
+Main dashboard UI
+Time/date
+Search bar
+Widgets
+Options page
+Configure widgets
+Theme settings
+Background settings
+Layout settings
+Storage layer
+Dashboard settings
+Quick links
+Notes
+To-dos
+Theme preferences
+Optional background/service worker
+Not required unless needed for storage sync or badge utilities
+Widget system
+
+Build dashboard as modular widgets:
+
+Clock widget
+Search widget
+Quick links widget
+Notes widget
+To-do widget
+Shortcuts widget
+
+Each widget should:
+
+Render independently
+Read/write from storage
+Be draggable or reorderable if possible
+Handle empty states gracefully
+Data model
+dashboardSettings = {
+  theme: "light" | "dark" | "system",
+  layout: "compact" | "comfortable",
+  backgroundMode: "solid" | "gradient" | "image",
+  widgetsOrder: string[],
+  showClock: boolean,
+  showSearch: boolean,
+  showQuickLinks: boolean,
+  showNotes: boolean,
+  showTodos: boolean
+}
+quickLink = {
+  id: string,
+  title: string,
+  url: string,
+  icon: string | null,
+  createdAt: string
+}
+note = {
+  id: string,
+  text: string,
+  createdAt: string,
+  updatedAt: string
+}
+todo = {
+  id: string,
+  text: string,
+  done: boolean,
+  createdAt: string
+}
+Key flows
+Open new tab
+Load settings from storage
+Render dashboard instantly
+Add quick link
+Save title and URL
+Add note
+Autosave note text
+Manage todos
+Add, complete, delete
+Customize layout
+Save widget preferences and theme
+Open links
+Search opens default engine in new tab
+Error handling
+Invalid URLs
+Empty note or todo entries
+Broken image/background URLs
+Storage errors
+Performance requirements
+Fast initial render
+Avoid heavy assets
+Works smoothly even with many notes/links
+No external API dependency required
+Acceptance criteria
+New tab replacement works
+Widget system is functional
+Settings persist locally
+UI is modern and responsive
+No backend needed

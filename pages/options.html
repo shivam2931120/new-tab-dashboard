@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>New Tab Dashboard Options</title>
+    <link rel="icon" href="../assets/icon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="../src/css/styles.css">
+  </head>
+  <body class="page page-options">
+    <a class="skip-link" href="#settings-root">Skip to settings</a>
+    <div class="app-shell app-shell-options">
+      <header class="topbar options-topbar" aria-label="Options navigation">
+        <a class="brand" href="./newtab.html" aria-label="Preview New Tab Dashboard">
+          <span class="brand-mark" aria-hidden="true">N</span>
+          <span class="brand-text">New Tab Dashboard</span>
+        </a>
+        <nav class="topbar-actions" aria-label="Options actions">
+          <a class="button button-ghost" href="./newtab.html" target="_blank" rel="noreferrer">Preview</a>
+        </nav>
+      </header>
+
+      <main id="settings-root" class="settings-layout" aria-live="polite"></main>
+    </div>
+
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script type="module" src="../src/js/options.js"></script>
+  </body>
+</html>
