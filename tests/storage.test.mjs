@@ -8,7 +8,7 @@ import {
   resetState,
   updateSettings
 } from "../src/js/storage.js";
-import { normalizeImageUrlInput, normalizeUrlInput } from "../src/js/utils.js";
+import { normalizeImageUrlInput, normalizeUrlInput, openDefaultSearch } from "../src/js/utils.js";
 
 const memoryStorage = new Map();
 
@@ -67,6 +67,26 @@ await test("queued writes do not overwrite rapid updates", async () => {
   const state = await loadState();
   assert.equal(state.todos.length, 2);
   assert.equal(state.settings.theme, "dark");
+});
+
+await test("search uses Firefox browser.search when Chrome query is unavailable", async () => {
+  let searched = null;
+  globalThis.chrome = {};
+  globalThis.browser = {
+    search: {
+      async search(payload) {
+        searched = payload;
+      }
+    }
+  };
+
+  await openDefaultSearch("dashboard");
+  assert.deepEqual(searched, {
+    query: "dashboard",
+    disposition: "CURRENT_TAB"
+  });
+  delete globalThis.chrome;
+  delete globalThis.browser;
 });
 
 console.log("Tests passed.");

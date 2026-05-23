@@ -26,6 +26,8 @@ A Manifest V3 browser extension that replaces the default new tab page with a fa
 ├── manifest.json
 ├── README.md
 ├── PRD-TRD.txt
+├── amo-metadata.json
+├── package-lock.json
 ├── package.json
 ├── assets
 │   └── icon.svg
@@ -86,6 +88,28 @@ This extension requests only:
 - `search`: submits dashboard searches to the browser default search engine
 
 There is no backend, login, analytics, tracking, or external API dependency.
+
+## Firefox Add-ons
+
+This project is prepared for Mozilla Add-ons with:
+
+- A Firefox extension ID in `browser_specific_settings.gecko.id`
+- `data_collection_permissions.required: ["none"]`
+- AMO listing metadata in `amo-metadata.json`
+- Development scripts for `web-ext`
+
+Run:
+
+```bash
+npm run firefox:lint
+npm run firefox:build
+```
+
+The build artifact is written to `web-ext-artifacts/`. To publish directly to AMO with `web-ext`, set `AMO_JWT_ISSUER` and `AMO_JWT_SECRET` from the AMO credentials page, then run:
+
+```bash
+npm run firefox:sign
+```
 
 ## Data Model
 

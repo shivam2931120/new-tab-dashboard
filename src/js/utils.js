@@ -173,8 +173,22 @@ export async function openDefaultSearch(query) {
     throw new Error("Enter a search term.");
   }
 
-  if (globalThis.chrome?.search?.query) {
-    const result = chrome.search.query({ text, disposition: "CURRENT_TAB" });
+  const chromeDefaultSearch = globalThis.chrome?.search?.["query"];
+  if (chromeDefaultSearch) {
+    const result = chromeDefaultSearch({ text, disposition: "CURRENT_TAB" });
+    if (result && typeof result.then === "function") {
+      await result;
+    }
+    return;
+  }
+
+  if (globalThis.browser?.search?.search) {
+    await browser.search.search({ query: text, disposition: "CURRENT_TAB" });
+    return;
+  }
+
+  if (globalThis.chrome?.search?.search) {
+    const result = chrome.search.search({ query: text, disposition: "CURRENT_TAB" });
     if (result && typeof result.then === "function") {
       await result;
     }

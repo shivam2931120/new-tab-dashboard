@@ -6,6 +6,12 @@
   "description": "A Manifest V3 browser extension that replaces the new tab page with a local productivity dashboard.",
   "scripts": {
     "check": "node scripts/validate.mjs",
+    "firefox:lint": "web-ext lint --source-dir . --ignore-files README.md PRD-TRD.txt package.json package-lock.json scripts tests .gitignore amo-metadata.json web-ext-artifacts",
+    "firefox:build": "web-ext build --overwrite-dest --source-dir . --artifacts-dir web-ext-artifacts --ignore-files README.md PRD-TRD.txt package.json package-lock.json scripts tests .gitignore amo-metadata.json web-ext-artifacts",
+    "firefox:sign": "web-ext sign --channel=listed --source-dir . --artifacts-dir web-ext-artifacts --amo-metadata amo-metadata.json --ignore-files README.md PRD-TRD.txt package.json package-lock.json scripts tests .gitignore amo-metadata.json web-ext-artifacts --api-key=$AMO_JWT_ISSUER --api-secret=$AMO_JWT_SECRET",
     "test": "node tests/storage.test.mjs"
+  },
+  "devDependencies": {
+    "web-ext": "^10.2.0"
   }
 }

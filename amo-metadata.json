@@ -1,0 +1,19 @@
+{
+  "summary": {
+    "en-US": "A fast, local-only productivity dashboard for your new tab page."
+  },
+  "categories": [
+    "other"
+  ],
+  "requires_payment": false,
+  "homepage": {
+    "en-US": "https://github.com/shivam2931120/new-tab-dashboard"
+  },
+  "support_url": {
+    "en-US": "https://github.com/shivam2931120/new-tab-dashboard/issues"
+  },
+  "version": {
+    "license": "MIT",
+    "approval_notes": "This extension stores dashboard settings, quick links, notes, and todos locally using browser storage. It does not use a backend, analytics, tracking, remote code, minification, or obfuscation. Custom background images are loaded only from user-entered HTTPS URLs."
+  }
+}

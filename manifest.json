@@ -3,13 +3,31 @@
   "name": "New Tab Dashboard",
   "version": "1.0.0",
   "description": "A fast, local-only productivity dashboard for your browser new tab page.",
+  "icons": {
+    "48": "assets/icon.svg",
+    "96": "assets/icon.svg",
+    "128": "assets/icon.svg"
+  },
   "permissions": ["storage", "search"],
   "chrome_url_overrides": {
     "newtab": "pages/newtab.html"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "new-tab-dashboard@shivam2931120.github.io",
+      "strict_min_version": "142.0",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "options_page": "pages/options.html",
   "action": {
-    "default_title": "New Tab Dashboard"
+    "default_title": "New Tab Dashboard",
+    "default_icon": {
+      "48": "assets/icon.svg",
+      "96": "assets/icon.svg"
+    }
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'; img-src 'self' https:;"

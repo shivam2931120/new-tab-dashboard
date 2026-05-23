@@ -1,5 +1,8 @@
 node_modules/
 dist/
 build/
+web-ext-artifacts/
+.web-extension-id
 *.zip
+*.xpi
 .DS_Store

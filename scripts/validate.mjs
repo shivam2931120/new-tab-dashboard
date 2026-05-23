@@ -28,6 +28,12 @@ assert(manifest.options_page === "pages/options.html", "Manifest must declare th
 assert(Array.isArray(manifest.permissions), "Manifest permissions must be an array.");
 assert(manifest.permissions.includes("storage"), "Manifest must include storage permission.");
 assert(manifest.permissions.includes("search"), "Manifest must include search permission.");
+assert(manifest.browser_specific_settings?.gecko?.id, "Manifest must include a Firefox extension ID.");
+assert(
+  manifest.browser_specific_settings.gecko.data_collection_permissions?.required?.includes("none"),
+  "Manifest must declare no required external data collection."
+);
+assert(manifest.icons?.["48"], "Manifest must include an extension icon.");
 
 await validateHtmlReferences("pages/newtab.html");
 await validateHtmlReferences("pages/options.html");
